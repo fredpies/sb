@@ -1,0 +1,69 @@
+import { Meta, ArgsTable, Story, Description, Canvas } from '@storybook/addon-docs/blocks';
+import BaseCard from '../components/base/BaseCard';
+import BaseButton from '../components/base/BaseButton';
+
+<Meta title="Base/BaseCard" component={BaseCard}/>
+
+export const DefaultSlot = (args, { argTypes }) => ({
+    props: Object.keys(argTypes),
+    components: { BaseCard },
+    template: '<BaseCard v-bind="$props">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt eaque error optio perferendis possimus, sunt.</BaseCard>'
+})
+
+export const WithHeaderSlot = (args, { argTypes }) => ({
+    props: Object.keys(argTypes),
+    components: { BaseCard },
+    template: `
+        <BaseCard v-bind="$props">
+            <template v-slot:header>
+                <a href="#">
+                  <img src="https://placeimg.com/640/480/arch" alt="image">
+                </a>
+            </template>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, delectus dignissimos error
+              ipsam molestias nostrum officia perspiciatis sint? Debitis earum fugit iure magnam nisi? Praesentium.
+        </BaseCard>`
+})
+
+export const WithFooterSlot = (args, { argTypes }) => ({
+    props: Object.keys(argTypes),
+    components: { BaseCard, BaseButton },
+    template: `
+        <BaseCard v-bind="$props">
+            <template v-slot:header>
+                <a href="#">
+                  <img src="https://placeimg.com/640/480/arch" alt="image">
+                </a>
+            </template>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, delectus dignissimos error
+              ipsam molestias nostrum officia perspiciatis sint? Debitis earum fugit iure magnam nisi? Praesentium.
+            <template v-slot:footer><BaseButton variant="info" block>Read More</BaseButton></template>
+        </BaseCard>`
+})
+
+# Base card stories
+<Description of={BaseCard}></Description>
+
+## Card with default slot
+
+<Canvas>
+    <Story name="Default slot">
+        { DefaultSlot.bind({}) }
+    </Story>
+</Canvas>
+
+<ArgsTable of={BaseCard}></ArgsTable>
+
+## Card with header slot
+
+<Story name="Header slot">
+    { WithHeaderSlot.bind({}) }
+</Story>
+
+## Card with footer slot
+
+<Story name="Footer slot">
+    { WithFooterSlot.bind({}) }
+</Story>
+
+

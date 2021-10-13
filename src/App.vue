@@ -1,28 +1,23 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <base-form-field icon="fa fa-calendar"></base-form-field>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import '@fortawesome/fontawesome-free/css/all.css';
+import './assets/tailwind.css'
+
+import BaseFormField from "@/components/base/BaseFormField";
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+  components: {BaseFormField },
+
+
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>

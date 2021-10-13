@@ -1,0 +1,112 @@
+import { Meta, ArgsTable, Story, Description, Canvas } from '@storybook/addon-docs/blocks';
+import BaseButton from '../components/base/BaseButton';
+
+<Meta title="Base/BaseButton" component={BaseButton}
+      parameters={{
+          controls: { exclude: ['isAnchor'] }
+      }}
+      argTypes={{
+        variant: {
+            type: 'string',
+            control: 'select',
+            options: ['primary', 'secondary', 'danger', 'info'],
+            defaultValue: 'default'
+        },
+          size: {
+              type: 'string',
+              control: 'select',
+              options: ['default', 'small', 'big'],
+              defaultValue: 'default'
+          },
+          block: {
+              type: 'boolean'
+          },
+          value: {
+            type: 'string',
+            defaultValue: 'value'
+          },
+          isAnchor: {
+              type: 'boolean',
+          },
+          onClick: {
+              action: 'click'
+          }
+      }}
+/>
+
+export const Template = (args, { argTypes }) => ({
+    props: Object.keys(argTypes),
+    components: { BaseButton },
+    template: '<BaseButton v-bind="$props" @click="onClick">Button</BaseButton>'
+})
+
+# Button stories
+
+<Description of={BaseButton}></Description>
+
+## BaseButton
+
+<Canvas>
+    <Story name="Primary" args={{ variant: 'primary'}}>
+        { Template.bind({}) }
+    </Story>
+</Canvas>
+
+<ArgsTable of={BaseButton}></ArgsTable>
+
+## Secondary button
+
+<Canvas>
+    <Story name="Secondary" args={{ variant: 'secondary'}}>
+        { Template.bind({}) }
+    </Story>
+</Canvas>
+
+## Danger button
+
+<Canvas>
+    <Story name="Danger" args={{ variant: 'danger'}}>
+        { Template.bind({}) }
+    </Story>
+</Canvas>
+
+## Info button
+
+<Canvas>
+    <Story name="Info" args={{ variant: 'info'}}>
+        { Template.bind({}) }
+    </Story>
+</Canvas>
+
+## Block button
+
+<Canvas>
+    <Story name="Block button" args={{ block: true}}>
+        { Template.bind({}) }
+    </Story>
+</Canvas>
+
+## Small button
+
+<Canvas>
+    <Story name="Size small" args={{ size: 'small' }}>
+        { Template.bind({}) }
+    </Story>
+</Canvas>
+
+## Default size button
+
+<Canvas>
+    <Story name="Default size" args={{ size: 'default' }}>
+        { Template.bind({}) }
+    </Story>
+</Canvas>
+
+## Big size button
+
+<Canvas>
+    <Story name="Big size" args={{ size: 'big' }}>
+        { Template.bind({}) }
+    </Story>
+</Canvas>
+
