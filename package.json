@@ -6,8 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "storybook:build": "vue-cli-service storybook:build -c config/storybook",
-    "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c config/storybook"
+    "storybook:build": "cross-env NODE_ENV=production vue-cli-service storybook:build -s stories/assets -c config/storybook",
+    "storybook:serve": "cross-env NODE_ENV=development vue-cli-service storybook:serve -s stories/assets -p 6006 -c config/storybook"
   },
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.15.4",
@@ -16,7 +16,8 @@
     "core-js": "^3.6.5",
     "postcss": "^7",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vuex": "^3.4.0"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
@@ -25,15 +26,19 @@
     "@storybook/addon-controls": "^6.3.11",
     "@storybook/addon-essentials": "6.3.11",
     "@storybook/addon-links": "6.3.11",
+    "@storybook/addon-postcss": "^2.0.0",
     "@storybook/vue": "6.3.11",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "babel-eslint": "^10.1.0",
     "calendar-months": "^1.0.1",
+    "cross-env": "^7.0.3",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
     "moment": "^2.29.1",
+    "storybook-addon-designs": "^6.2.0",
     "vue-cli-plugin-storybook": "~2.1.0",
     "vue-cli-plugin-tailwind": "~2.0.6",
     "vue-template-compiler": "^2.6.11"

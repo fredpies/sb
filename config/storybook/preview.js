@@ -2,6 +2,11 @@ import '@/assets/tailwind.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 
+import Vue from 'vue';
+import Vuex from 'vuex';
+
+Vue.use(Vuex);
+
 const additionalViewports = {
     1024: {
         name: '768p',

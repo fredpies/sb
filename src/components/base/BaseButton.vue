@@ -77,6 +77,7 @@ export default {
       this.$emit('click', this.value)
     }
   },
+
   computed: {
     variantClassList() {
       return this.variants[this.variant === 'default' ? 'primary' : this.variant]
